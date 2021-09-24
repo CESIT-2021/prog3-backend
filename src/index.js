@@ -1,10 +1,22 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
+const mongoose = require('mongoose');
 
 const PORT = 4000;
 
+mongoose.Promise = global.Promise;
+mongoose.connect("mongodb://localhost:27017/prog3-2021", { useNewUrlParser: true });
+
+app.use(express.json());
 app.use(cors());
+
+// Importamos los modelos
+require("./models/Tarea");
+
+
+// Importamos las rutas
+require("./routes/tareasRoutes")(app);
 
 const productos = [
     { id: 1, nombre: "Nike", talle: 34, precio: 15000},
