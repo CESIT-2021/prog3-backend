@@ -9,12 +9,12 @@ const tareasRoutes = (app) => {
 
 
     app.post("/api/tareas", async (req, res) => {
-        const { nombre, descripcion, estaFinailzada } = req.body;
+        const { nombre, descripcion, estaFinalizada } = req.body;
 
         const tarea = new Tarea({
             nombre,
             descripcion,
-            estaFinailzada,
+            estaFinalizada,
             createdAt: new Date(),
             updatedAt: new Date()
         });
@@ -99,7 +99,7 @@ const tareasRoutes = (app) => {
         }
 
         if (tarea) {
-            tarea.estaFinailzada = !tarea.estaFinailzada;
+            tarea.estaFinalizada = !tarea.estaFinalizada;
             tarea.updatedAt = new Date();
             tarea.save();
             res.status(200).send(tarea);

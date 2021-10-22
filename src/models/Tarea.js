@@ -4,7 +4,7 @@ const {Schema} = mongoose;
 const tareaSchema = new Schema({
   nombre: String,
   descripcion: String,
-  estaFinailzada: { type: Boolean, default: false },
+  estaFinalizada: { type: Boolean, default: false },
   createdAt: Date,
   updatedAt: Date
 });
